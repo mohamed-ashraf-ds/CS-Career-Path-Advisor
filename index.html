@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>CS Career Path Advisor</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="hero-section">
+    <nav class="navbar">
+      <div class="logo">
+        <span>🎓</span>
+        <h2>CS Career Path Advisor</h2>
+      </div>
+
+      <button id="themeBtn">🌙 Dark Mode</button>
+    </nav>
+
+    <div class="hero-content">
+      <div>
+        <p class="badge">For Computer Science Students</p>
+
+        <h1>Choose Your Best Tech Career Path</h1>
+
+        <p>
+          Discover computer science specializations, jobs, skills, tools,
+          roadmaps, projects, and global job demand in one smart dashboard.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#quizSection">Start Career Quiz</a>
+          <a href="#careerSection" class="secondary-btn">Explore Paths</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <h3>Project Features</h3>
+        <ul>
+          <li>Career Recommendation Quiz</li>
+          <li>Specialization Roadmaps</li>
+          <li>Global Demand Dashboard</li>
+          <li>Search and Save Favorite Path</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="saved-path-card" id="savedPathCard">
+      <div>
+        <p>Your Saved Career Path</p>
+        <h2 id="savedPathText">No saved path yet</h2>
+      </div>
+
+      <button id="clearSavedBtn">Clear Saved Path</button>
+    </section>
+
+    <section class="section-title">
+      <p>Global Job Market</p>
+      <h2>Demand Dashboard</h2>
+      <span>
+        Demand data is sample educational data used to demonstrate dashboard logic.
+      </span>
+    </section>
+
+    <section class="demand-dashboard">
+      <div class="top-demand-card">
+        <p>Most Demanded Career</p>
+        <h2 id="topCareerName">--</h2>
+        <h3 id="topCareerScore">--</h3>
+        <span id="topCareerRegion">Global</span>
+      </div>
+
+      <div class="demand-panel">
+        <div class="dashboard-header">
+          <div>
+            <h3>Career Demand Ranking</h3>
+            <p>Filter demand ranking by region</p>
+          </div>
+
+          <select id="regionSelect">
+            <option value="Global">Global</option>
+            <option value="Egypt">Egypt</option>
+            <option value="USA">USA</option>
+            <option value="Europe">Europe</option>
+            <option value="Gulf">Gulf</option>
+          </select>
+        </div>
+
+        <div id="demandBars" class="demand-bars"></div>
+      </div>
+    </section>
+
+    <section class="section-title" id="quizSection">
+      <p>Career Quiz</p>
+      <h2>Find the Best Path for You</h2>
+      <span>
+        Answer simple questions and the website will recommend a suitable tech career.
+      </span>
+    </section>
+
+    <section class="quiz-grid">
+      <div class="quiz-card">
+        <h3>Answer These Questions</h3>
+
+        <form id="quizForm">
+          <label>What do you enjoy the most?</label>
+          <select name="q1">
+            <option value="frontend">Building website interfaces</option>
+            <option value="backend">Solving logic and server problems</option>
+            <option value="cybersecurity">Security and ethical hacking</option>
+            <option value="datascience">Analyzing data and numbers</option>
+            <option value="mobile">Building mobile apps</option>
+            <option value="uiux">Designing user experiences</option>
+          </select>
+
+          <label>Which subject sounds more interesting?</label>
+          <select name="q2">
+            <option value="ai">Artificial Intelligence</option>
+            <option value="cloud">Cloud Computing</option>
+            <option value="devops">Deployment and automation</option>
+            <option value="testing">Finding bugs and testing software</option>
+            <option value="game">Game logic and graphics</option>
+            <option value="embedded">Hardware and microcontrollers</option>
+          </select>
+
+          <label>What type of work do you prefer?</label>
+          <select name="q3">
+            <option value="frontend">Visual and interactive work</option>
+            <option value="backend">System logic and APIs</option>
+            <option value="fullstack">Complete web applications</option>
+            <option value="database">Databases and information storage</option>
+            <option value="cybersecurity">Protecting systems from attacks</option>
+            <option value="datascience">Reports, dashboards, and insights</option>
+          </select>
+
+          <label>How much do you like math?</label>
+          <select name="q4">
+            <option value="ai">I like math and algorithms</option>
+            <option value="datascience">I like statistics and data</option>
+            <option value="frontend">Not too much, I prefer visual work</option>
+            <option value="testing">I prefer practical checking</option>
+            <option value="cloud">I prefer systems and infrastructure</option>
+            <option value="mobile">I prefer apps and user features</option>
+          </select>
+
+          <label>What is your preferred job style?</label>
+          <select name="q5">
+            <option value="fullstack">Building complete products</option>
+            <option value="devops">Managing deployment and servers</option>
+            <option value="uiux">Designing screens and user flows</option>
+            <option value="cybersecurity">Investigating attacks and risks</option>
+            <option value="game">Creating games</option>
+            <option value="embedded">Working close to hardware</option>
+          </select>
+
+          <button type="submit">Get Recommendation</button>
+        </form>
+      </div>
+
+      <div class="recommendation-card">
+        <p>Recommended Path</p>
+        <h2 id="recommendationTitle">Not selected yet</h2>
+        <span id="recommendationText">
+          Complete the quiz to get your recommended specialization.
+        </span>
+
+        <button id="viewRecommendedBtn">View Recommended Path</button>
+      </div>
+    </section>
+
+    <section class="section-title" id="careerSection">
+      <p>Career Explorer</p>
+      <h2>Explore Computer Science Specializations</h2>
+      <span>
+        Search or select a field to see jobs, skills, tools, roadmap, and projects.
+      </span>
+    </section>
+
+    <section class="career-controls">
+      <input type="text" id="searchInput" placeholder="Search: AI, Security, Web, Data..." />
+
+      <select id="careerSelect"></select>
+
+      <button id="savePathBtn">Save This Path</button>
+    </section>
+
+    <section class="career-dashboard">
+      <div class="career-main-card">
+        <div class="career-title-row">
+          <div>
+            <p id="careerCategory">Specialization</p>
+            <h2 id="careerTitle">Frontend Development</h2>
+          </div>
+
+          <span id="difficultyBadge">Medium</span>
+        </div>
+
+        <p id="careerDescription"></p>
+
+        <div class="quick-stats">
+          <div>
+            <p>Learning Time</p>
+            <h3 id="learningTime">--</h3>
+          </div>
+
+          <div>
+            <p>Market Demand</p>
+            <h3 id="demandLevel">--</h3>
+          </div>
+
+          <div>
+            <p>Remote Jobs</p>
+            <h3 id="remoteLevel">--</h3>
+          </div>
+
+          <div>
+            <p>Competition</p>
+            <h3 id="competitionLevel">--</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparison-card">
+        <h3>Selected Path Demand</h3>
+
+        <div class="circle-score">
+          <span id="selectedDemandScore">--</span>
+        </div>
+
+        <p id="selectedRankText">Select a path to see ranking.</p>
+      </div>
+    </section>
+
+    <section class="details-grid">
+      <div class="details-card">
+        <h3>Jobs You Can Work</h3>
+        <div id="jobsList" class="chips"></div>
+      </div>
+
+      <div class="details-card">
+        <h3>Skills Needed</h3>
+        <div id="skillsList" class="chips"></div>
+      </div>
+
+      <div class="details-card">
+        <h3>Tools & Technologies</h3>
+        <div id="toolsList" class="chips"></div>
+      </div>
+
+      <div class="details-card">
+        <h3>Suggested Projects</h3>
+        <div id="projectsList" class="project-list"></div>
+      </div>
+    </section>
+
+    <section class="roadmap-card">
+      <h3>Step-by-Step Roadmap</h3>
+      <div id="roadmapList" class="roadmap-list"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>CS Career Path Advisor | HTML + CSS + JavaScript Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
