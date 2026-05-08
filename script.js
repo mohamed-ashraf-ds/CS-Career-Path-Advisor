@@ -480,6 +480,12 @@ searchInput.addEventListener("input", function () {
 
 savePathBtn.addEventListener("click", function () {
   const selectedKey = careerSelect.value;
+
+  if (!selectedKey || !careers[selectedKey]) {
+    alert("Please select a valid career path first.");
+    return;
+  }
+
   localStorage.setItem("savedCareer", selectedKey);
   renderSavedPath();
   alert("Career path saved successfully.");
@@ -560,13 +566,34 @@ function renderCareerOptions(searchText = "") {
   });
 
   if (careerSelect.options.length === 0) {
-    const option = document.createElement("option");
-    option.value = "";
-    option.textContent = "No careers found";
-    careerSelect.appendChild(option);
-  }
+  const option = document.createElement("option");
+  option.value = "";
+  option.textContent = "No careers found";
+  careerSelect.appendChild(option);
 
-  renderSelectedCareer();
+  careerTitle.textContent = "No career found";
+  careerCategory.textContent = "Search Result";
+  careerDescription.textContent = "Try searching with another keyword.";
+  difficultyBadge.textContent = "--";
+
+  learningTime.textContent = "--";
+  demandLevel.textContent = "--";
+  remoteLevel.textContent = "--";
+  competitionLevel.textContent = "--";
+
+  selectedDemandScore.textContent = "--";
+  selectedRankText.textContent = "No selected path.";
+
+  jobsList.innerHTML = "";
+  skillsList.innerHTML = "";
+  toolsList.innerHTML = "";
+  projectsList.innerHTML = "";
+  roadmapList.innerHTML = "";
+
+  return;
+}
+
+renderSelectedCareer();
 }
 
 function renderSelectedCareer() {
