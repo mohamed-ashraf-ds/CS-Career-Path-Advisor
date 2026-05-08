@@ -180,7 +180,6 @@ body {
 }
 
 .saved-path-card button,
-#clearSavedBtn,
 #savePathBtn,
 .quiz-card button,
 #viewRecommendedBtn {
@@ -192,7 +191,7 @@ body {
   cursor: pointer;
   font-weight: bold;
 }
-
+#cleaan css
 .saved-path-card button:hover,
 #savePathBtn:hover,
 .quiz-card button:hover,
